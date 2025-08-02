@@ -1,0 +1,14 @@
+body {
+  background-color: rgb(29, 29, 29);
+}
+
+h1#unico-1 {
+  color: crimson;
+}
+
+h2#unico-2 {
+  color: chartreuse;
+}
+p#unico-3 {
+  color: rgb(185, 122, 243);
+}
