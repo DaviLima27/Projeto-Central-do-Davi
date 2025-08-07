@@ -3,16 +3,34 @@
   padding: 0;
   box-sizing: border-box;
 }
+:root {
+  --text-color: white;
+  --bg-url: url(./assets/assets/bg-mobile.png);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg_url: url(./assets/assets/moon-stars.svg);
+}
 
+.light {
+  --text-color: black;
+  --bg-url: url(./assets/assets/bg-mobile-light.png);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.05);
+  --highlight-color: rgba(0, 0, 0, 0.116);
+  --switch-bg-url: url(./assets/assets/sun.svg);
+}
 body {
   /* background:          image,                  repeat,      position/size */
-  background: url(./assets/assets/bg-mobile.jpg) no-repeat top center/cover;
+  background: var(--bg-url) no-repeat top center/cover;
 }
 body * {
   font-family: "Inter", sans-serif;
-  color: aliceblue;
+  color: var(--text-color);
 }
-
+/* conteiner*/
 #conteiner {
   width: 360px;
   /* border: 2px solid rgb(255, 255, 255);*/
@@ -20,6 +38,8 @@ body * {
 
   margin-top: 56px;
 }
+
+/* profile*/
 #profile {
   text-align: center;
   padding: 24px;
@@ -37,7 +57,44 @@ body * {
   line-height: 24px;
   margin-top: 8px;
 }
+/* switch*/
+#switch {
+  /*border: 1px solid red;*/
+  position: relative;
+  width: 64px;
+  margin: auto;
+}
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg_url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
 
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  transform: translateY(-50%);
+}
+.light #switch button {
+  right: 1;
+  left: initial;
+  background: white var(--switch-bg-url) no-repeat center;
+}
+
+#switch span {
+  display: block; /*o span é inline,para funcionar temos que adicionar esse display block*/
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  -webkit-backdrop-filter: blur(
+    4px
+  ); /* o -webkit- é para funcionar em outros navegadores*/
+  border-radius: 50px;
+}
 /* links */
 ul {
   list-style: none;
@@ -57,8 +114,8 @@ ul li a {
 
   padding: 16px 24px;
 
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px, solid rgba(255, 255, 255, 0.61);
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
   border-radius: 8px;
 
   backdrop-filter: blur(60px);
@@ -70,17 +127,32 @@ ul li a {
 
 /* pseudo-selector ---- serve pra colocar um efeito ao passarmos o mouse por cima*/
 ul li a:hover {
-  background: rgba(255, 255, 255, 0.055);
-  border: 1.5px solid rgb(255, 255, 255);
+  background: var(--highlight-color);
+  border: 1.5px solid var(--text-color);
 }
 
 /* social links*/
 #social-links {
   display: flex;
   justify-content: center;
-  gap: 32px;
   padding: 24px 0;
   font-size: 24px;
 }
 
- 
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  transition: background 0.3s;
+  border-radius: 50px;
+}
+#social-links a:hover {
+  background: var(--highlight-color);
+  
+}
+
+footer {
+  padding: 21px;
+  align-items: center;
+}
