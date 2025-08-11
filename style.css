@@ -32,11 +32,12 @@ body * {
 }
 /* conteiner*/
 #conteiner {
-  width: 360px;
+  width: 100%;
+  max-width: 588px;
   /* border: 2px solid rgb(255, 255, 255);*/
   margin: auto;
-
-  margin-top: 56px;
+  margin-top: 56px auto 0px;
+  padding: 0 24px;
 }
 
 /* profile*/
@@ -154,5 +155,7 @@ ul li a:hover {
 
 footer {
   padding: 21px;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
